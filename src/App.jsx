@@ -168,6 +168,7 @@ function App() {
     const sorted = [...stateRef.current.points].sort((a, b) => a.id - b.id)
     
     for (const p of sorted) {
+      if (p.clicked) continue
       const dist = Math.hypot(e.clientX - rect.left - p.x, e.clientY - rect.top - p.y)
       if (dist <= RADIUS) {
         processClick(p)
